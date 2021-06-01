@@ -1,0 +1,99 @@
+package assignment1;
+
+import java.util.Scanner;									//1.2 - Predefined class
+
+public class AdvertisementAndMarketing {					//1.3 - User defined class
+	Scanner input = new Scanner(System.in);
+	String[] homestay = new String[15];
+	double[] profit = new double[15];
+	String highestProfitHomestay;
+	String lowestProfitHomestay;
+	int numOfHomestay;
+	
+	public AdvertisementAndMarketing() {					//1.4 - 0 argument constructor
+		this.numOfHomestay = 0;
+		homestay[numOfHomestay] = "Orchid Suite, Langkawi";
+		profit[numOfHomestay++] = 4100;
+		
+		homestay[numOfHomestay] = "Magic Studio, Georgetown";
+		profit[numOfHomestay++] = 3530;
+		
+		homestay[numOfHomestay] = "Diamond House, Ipoh";
+		profit[numOfHomestay++] = 5200;	
+	}
+
+	public String findMostProfitted() {
+		double mostProfitted = 0;
+		String mostProfittedHomestay = "";
+
+		for(int i = 0; i <= numOfHomestay; i++) {
+			if(profit[i] >= mostProfitted) {
+				mostProfitted = profit[i] ;
+				mostProfittedHomestay = homestay[i];
+			}
+		}
+		return mostProfittedHomestay ;
+	}
+	
+	public String findLeastProfitted() {
+		double leastProfitted = profit[0];
+		String leastProfittedHomestay = "";
+
+		for(int i = 0; i <= numOfHomestay; i++) {
+			if((leastProfitted >= profit[i])&&(profit[i]!=0)) {
+				leastProfitted = profit[i];
+				leastProfittedHomestay = homestay[i];
+			}
+		}
+		return leastProfittedHomestay ;
+	}
+	
+	public void marketingReport() {
+		System.out.println("---------MARKETING REPORT----------");
+		
+		for (int i = 0; i < numOfHomestay; i++) {
+			System.out.printf("%-20s: %s%n", "Homestay name", homestay[i]);
+			System.out.printf("%-20s: RM%.2f%n%n", "Last month profit", profit[i]);
+		}
+		
+		System.out.println(">>>The most profitted homestay\t: " + findMostProfitted());
+		System.out.println(">>>The least profitted homestay\t: " + findLeastProfitted());
+		System.out.println();
+		
+	}
+	
+	public void advertisementOption() {
+		boolean repeat = true;
+		while (repeat) {
+			System.out.println("---------ADVERTISEMENT OPTION---------");
+			System.out.println("Please select one of the following advertising option to boost business in "
+					+ findLeastProfitted()
+					+ ":\nA. Free gift for three or more night.\nB. RM5 KFC voucher for four or more night.\nC. Free breakfast for any booking.");
+			System.out.print(">>>Option: ");
+			String option = input.next().toUpperCase();
+
+			switch (option) {
+			case "A":
+				System.out.println("Free gift will be prepared for the guest(s) who book for more than 3 nights.");
+				repeat = false;
+				break;
+			case "B":
+				System.out.println("KFC voucher will be given to guest(s) who stay for four or more nights");
+				repeat = false;
+				break;
+			case "C":
+				System.out.println("The staff will prepare the breakfast for the guest(s).");
+				repeat = false;
+				break;
+			default:
+				System.out.println("Invalid option. Try again\n");
+			}
+		}
+		System.out.print("Input any key to return to admin menu\n>>>");
+		input.next();
+		System.out.println("\n\n");
+		
+	}
+}
+
+
