@@ -6,7 +6,6 @@ public class Finance {								//1.3 - User defined class
 	Scanner input = new Scanner(System.in);
 	double totalRevenue;
 	double totalExpense;
-	double totalNetProfit;
 	double totalSponsorship;
 	boolean repeat;
 	

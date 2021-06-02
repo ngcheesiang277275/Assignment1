@@ -24,28 +24,26 @@ public class AdvertisementAndMarketing {					//1.3 - User defined class
 
 	public String findMostProfitted() {
 		double mostProfitted = 0;
-		String mostProfittedHomestay = "";
 
 		for(int i = 0; i <= numOfHomestay; i++) {
 			if(profit[i] >= mostProfitted) {
 				mostProfitted = profit[i] ;
-				mostProfittedHomestay = homestay[i];
+				highestProfitHomestay = homestay[i];
 			}
 		}
-		return mostProfittedHomestay ;
+		return highestProfitHomestay ;
 	}
 	
 	public String findLeastProfitted() {
 		double leastProfitted = profit[0];
-		String leastProfittedHomestay = "";
 
 		for(int i = 0; i <= numOfHomestay; i++) {
 			if((leastProfitted >= profit[i])&&(profit[i]!=0)) {
 				leastProfitted = profit[i];
-				leastProfittedHomestay = homestay[i];
+				lowestProfitHomestay = homestay[i];
 			}
 		}
-		return leastProfittedHomestay ;
+		return lowestProfitHomestay ;
 	}
 	
 	public void marketingReport() {
