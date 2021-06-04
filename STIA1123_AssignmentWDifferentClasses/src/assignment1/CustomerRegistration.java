@@ -2,7 +2,7 @@ package assignment1;
 
 import java.util.Scanner;								//1.2 - Predefined class
 
-public class CustomerRegistration {
+public class CustomerRegistration {						//1.3 - User defined class
 	
 	Scanner input = new Scanner(System.in);
 	String cardNum;
@@ -10,7 +10,7 @@ public class CustomerRegistration {
 	String cvv;
 	String cardholder;
 	
-	public CustomerRegistration() {
+	public CustomerRegistration() {						//1.4 - 0 argument constructor
 		do {
 		System.out.print("Card number \t\t: ");
 		cardNum = input.next();
