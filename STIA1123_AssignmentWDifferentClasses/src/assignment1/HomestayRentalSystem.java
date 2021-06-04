@@ -1,10 +1,7 @@
 package assignment1;
 
-import java.util.Scanner;								//1.2 - Predefined class
-
 public class HomestayRentalSystem {						//1.3 - User defined class
 	
-	Scanner input = new Scanner(System.in);
 	String companyName;
 	String companyContactNum;
 	String companyAddress;

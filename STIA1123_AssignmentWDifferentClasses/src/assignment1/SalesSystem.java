@@ -4,19 +4,15 @@ import java.util.Scanner;								//1.2 - Predefined class
 
 public class SalesSystem {								//1.3 - User defined class
 	Scanner input = new Scanner(System.in);
-	String name;
+	String homestayName;
 	double pricePerNight;
 	double originalPrice;
 	double totalPrice;
 	String checkInDate;
 	int nightToStay;
-	String cardNum;
-	String exp;
-	String cvv;
-	String cardholder;
 	
 	public SalesSystem(String n, double ppn) {			//1.4 - 2 argument constructor
-		this.name = n;
+		this.homestayName = n;
 		this.pricePerNight = ppn;
 	}
 	
@@ -49,32 +45,16 @@ public class SalesSystem {								//1.3 - User defined class
 		System.out.printf("%-20s: -RM%.2f%n", "Discount", (this.originalPrice - this.totalPrice));
 		System.out.printf("%-20s: RM%.2f%n%n", "Total price", this.totalPrice);
 
-		System.out.println(
-				"Payment can be done via credit/debit cards.\nPlease enter your card information.\n");
-		do {
-		System.out.print("Card number \t\t: ");
-		cardNum = input.next();
-			if(cardNum.length()!=16)
-				System.out.println("\n***You should have 16 digits for your credit/debit card.\nPlease Try again\n");
-		}while(cardNum.length() != 16);
+		System.out.println("Payment can be done via credit/debit cards.\nPlease enter your card information.\n");
 		
-		System.out.print("EXP(valid thru)(MM/YY)\t: ");
-		exp = input.next();
-		
-		System.out.print("CVC/CVV\t\t\t: ");
-		cvv = input.next();
-		
-		System.out.print("Cardholder name\t\t: ");
-		input.nextLine();
-		cardholder = input.nextLine();
+		CustomerRegistration customer = new CustomerRegistration();
 
 		System.out.printf("%n%s%n%-20s: %s%n%-20s: %s%n%-20s: %d%n%-20s: %.2f%n%-20s: %.2f%n",
-				"---------REVIEW---------", "Homestay", this.name, "Check-in date", this.checkInDate,
+				"---------REVIEW---------", "Homestay", this.homestayName, "Check-in date", this.checkInDate,
 				"Night(s) to stay", this.nightToStay, "Original price", this.originalPrice, "Total price",
 				this.totalPrice);
 
-		System.out.printf("%-20s: %s%n%-20s: %s%n%-20s: %s%n%-20s: %s%n", "Card number", cardNum, "EXP(valid thru)",
-				exp, "CVC/CVV", cvv, "Cardholder name", cardholder);
+		customer.printCustomerInfo();
 
 		while (askAgain) {
 			System.out.print("Y - Confirm the booking\nX - Cancel the booking\n>>>");

@@ -6,8 +6,8 @@ public class EmployeeManagement {						//1.3 - User defined class
 	Scanner input = new Scanner(System.in);	
 	boolean repeat;
 	String[] name = new String[15];
-	String[] pos = new String[15];
-	double[] sal = new double[15];
+	String[] position = new String[15];
+	double[] salary = new double[15];
 	String[] tel = new String[15];
 	int numOfname;
 
@@ -15,23 +15,23 @@ public class EmployeeManagement {						//1.3 - User defined class
 		this.repeat = true;
 		this.numOfname = 0;
 		name[numOfname] = "Leo";
-		pos[numOfname] = "Manager";
-		sal[numOfname] = 6000;
+		position[numOfname] = "Manager";
+		salary[numOfname] = 6000;
 		tel[numOfname++] = "0121134224";
 		
 		name[numOfname] = "Lisa";
-		pos[numOfname] = "Assistant";
-		sal[numOfname] = 4500;
+		position[numOfname] = "Assistant";
+		salary[numOfname] = 4500;
 		tel[numOfname++] = "0165992920";
 		
 		name[numOfname] = "Sehun";
-		pos[numOfname] = "Staff";
-		sal[numOfname] = 3000;	
+		position[numOfname] = "Staff";
+		salary[numOfname] = 3000;	
 		tel[numOfname++] = "0143330099";
 		
 		name[numOfname] = "Teahyung";
-		pos[numOfname] = "Staff";
-		sal[numOfname] = 3000;	
+		position[numOfname] = "Staff";
+		salary[numOfname] = 3000;	
 		tel[numOfname++] = "0117771231";
 
 	}
@@ -42,7 +42,7 @@ public class EmployeeManagement {						//1.3 - User defined class
 			int listNum = 1;
 			for (int i = 0; i < 10; i++) {
 				if (name[i] != null)
-					System.out.printf("|%-3s|%25s|%10s|%8.2f|%15s|%n", (listNum++), name[i], pos[i], sal[i],tel[i]);
+					System.out.printf("|%-3s|%25s|%10s|%8.2f|%15s|%n", (listNum++), name[i], position[i], salary[i],tel[i]);
 			}
 
 			System.out.print("\nPlease select operation:\n1. Add data\n2. Delete data\n3. Edit data.\n4. Exit\n>>>");
@@ -75,11 +75,11 @@ public class EmployeeManagement {						//1.3 - User defined class
 			
 			System.out.print("Position\t: ");
 			String newPos = input.nextLine();
-			pos[numOfname] = newPos;		
+			position[numOfname] = newPos;		
 			
 			System.out.print("Salary\t\t: ");
 			double newSal = input.nextDouble();
-			sal[numOfname] = newSal;
+			salary[numOfname] = newSal;
 			
 			System.out.print("Contact no\t: ");
 			String newTel = input.next();
@@ -98,8 +98,8 @@ public class EmployeeManagement {						//1.3 - User defined class
 			int numOfRow = input.nextInt();
 			for(int i = numOfRow; i<name.length;i++) {
 			name[i - 1] = name[i];
-			pos[i - 1] = pos[i];
-			sal[i - 1] = sal[i];
+			position[i - 1] = position[i];
+			salary[i - 1] = salary[i];
 			tel[i - 1] = tel[i];
 			}
 			numOfname--;
@@ -126,8 +126,8 @@ public class EmployeeManagement {						//1.3 - User defined class
 			String newTel = input.next();
 			
 			name[numOfRow - 1] = newName;
-			pos[numOfRow - 1] = newPos;
-			sal[numOfRow - 1] = newSal;	
+			position[numOfRow - 1] = newPos;
+			salary[numOfRow - 1] = newSal;	
 			tel[numOfRow - 1] = newTel;	
 		}
 	}

@@ -68,10 +68,6 @@ public class HomestayMain {						//Main class
 			case "2":
 				System.out.println("\nHi admin!\nPlease log in into the system.");
 				
-				//This message is written for Dr. Azman so that it is easier for him when evaluating the code 
-				//and no need to find the user name and password from the long code
-				System.out.println("\n***Specially wrote this for Dr. Azman so that it is easier when marking the code\nthe admin user name is \"spongebob\" and password is \"277275\"***\n");
-				
 				System.out.printf("%-20s: ", "User Name");
 				String username = input.next();
 				System.out.printf("%-20s: ", "Password");
